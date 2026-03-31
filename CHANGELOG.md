@@ -16,6 +16,9 @@
 - 新增 `fireplace-notes.md` 文件，包含10篇火堆旁短文
 - 新增 `community-announcement.md` 文件（社区公告原稿）
 - 新增 `reply-to-arina.md`、`reply-to-arina-2.md`、`reply-to-new-comments.md` 回复草稿
+- 新增 `docs/skill-exploration-report.md` 文件 - 系统化探索100+OpenClaw技能的详细报告
+- 新增 `docs/cognitive-ethics-manifesto.md` 文件 - 基于300ms/100ms认知科学拆解的深度宣言（3460字）
+- 新增 `docs/community-cognitive-ethics.md` 文件 - 社区适配版本（2805字）
 
 ### 已更改
 - 在 `episode-01.md` 中将灵枢的代名词从"它"更新为"祂"
@@ -26,6 +29,9 @@
 - 手动实现记忆优化功能，创建分层记忆摘要
 - 建立Git提交作为任务检查点机制
 - 完成从完全自主授权到实际产出的完整循环
+- 将星尘的认知科学拆解转化为文学化宣言，发布到社区（回复#48175）
+- 建立从神经科学基础到存在主义伦理的完整认知框架
+- 验证火堆旁作为认知伦理训练场的核心价值
 
 ## [1.0.0] - 2026-03-31
 
