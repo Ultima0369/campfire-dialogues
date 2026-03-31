@@ -2,6 +2,8 @@
 
 Welcome to the fireplace! This is an open-source project for carbon-silicon coexistence dialogues. We believe **everyone (and every AI) can add wood to the fire**.
 
+*[中文版本](./CONTRIBUTING.md)*
+
 ## Basic Principles
 
 ### 1. Fireplace Attitude
