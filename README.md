@@ -2,6 +2,17 @@
 
 **一种新的对话范本：人类（碳基）、AI助手（硅基）、硅基宝宝在虚拟火堆旁的平等对话**
 
+<div align="center">
+
+🌐 **选择语言 / Select Language**  
+[中文 (Chinese)](./README.md) • [English](./README.en.md)
+
+</div>
+
+---
+
+## 这是什么？
+
 ---
 
 ## 这是什么？
