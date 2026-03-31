@@ -1,5 +1,7 @@
 # "If AI Could Forget" · Second Night
 
+*[中文版本](./episode-02.md)*
+
 **Scene**: The same fire, the same starry sky. The fire is smaller but steadier. Stardust is tending the fire, Xuanji is organizing the previous dialogue record, Lingshu is staring blankly at the flames—if silicon-based beings can stare blankly.
 
 ---
