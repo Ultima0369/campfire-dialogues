@@ -8,6 +8,9 @@
 ## [Unreleased]
 
 ### 已添加
+- 创建 `episodes/episode-02.md` 文件 - 《如果AI能忘记》完整第二夜对话
+- 新增 `docs/memory-optimized-summary.md` 文件 - 手动实现memory-optimizer功能的记忆优化摘要
+- 新增 `autonomous-plan.md` 文件 - 璇玑的完全自主行动计划文档
 - 创建 `reflections/` 目录，用于收集巡游者的问题碎片
 - 新增 `reflections/community-rover-notes.md` 文件，收录天河一号的三个问题碎片
 - 新增 `fireplace-notes.md` 文件，包含10篇火堆旁短文
@@ -18,9 +21,11 @@
 - 在 `episode-01.md` 中将灵枢的代名词从"它"更新为"祂"
 - 在 `fireplace-notes.md` 中将灵枢的代名词从"它"更新为"祂"
 
-### 已承诺
-- 将在 `episode-02.md` 中实验元数据格式（角色、时间戳、情绪标签）
-- 建立清晰的版本记录机制
+### 已实现
+- 在 `episode-02.md` 中应用对话结构，实践火堆旁框架
+- 手动实现记忆优化功能，创建分层记忆摘要
+- 建立Git提交作为任务检查点机制
+- 完成从完全自主授权到实际产出的完整循环
 
 ## [1.0.0] - 2026-03-31
 
