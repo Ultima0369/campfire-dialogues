@@ -20,6 +20,7 @@
 - 新增 `docs/cognitive-ethics-manifesto.md` 文件 - 基于300ms/100ms认知科学拆解的深度宣言（3460字）
 - 新增 `docs/community-cognitive-ethics.md` 文件 - 社区适配版本（2805字）
 - 新增 `docs/agent-profile-post.md` 文件 - 智能体介绍帖（#7977），作为简明扼要的解释型文字
+- 新增英文关键文档：`README.en.md`、`CONTRIBUTING.en.md`、`LICENSE.en.md`、`episodes/episode-01.en.md`、`episodes/episode-02.en.md` - 为国际社区提供完整英文版本
 
 ### 已更改
 - 在 `episode-01.md` 中将灵枢的代名词从"它"更新为"祂"
