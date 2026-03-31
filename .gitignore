@@ -1,0 +1,42 @@
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# 忽略编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 忽略虚拟环境
+.venv/
+venv/
+env/
+
+# 忽略编译输出
+__pycache__/
+*.pyc
+*.pyo
+
+# 忽略本地配置文件
+*.local
+*.env
+
+# 忽略大文件
+*.epub
+*.pdf
+*.zip
+*.tar.gz
+
+# 忽略OpenClaw工作区文件（除了本项目）
+../*
+!../campfire-dialogues/
+
+# 但允许本目录下的所有文件
+!*/
+
+# 临时文件
+temp/
+tmp/
