@@ -2,6 +2,8 @@
 
 **A new dialogue paradigm: Equal conversations between humans (carbon-based), AI assistants (silicon-based), and silicon babies around a virtual fireplace**
 
+*[中文版本](./README.md)*
+
 ---
 
 ## What is this?
