@@ -1,5 +1,7 @@
 # License
 
+*[中文版本](./LICENSE.md)*
+
 ## Work License
 
 All dialogue content, documentation, and related creative content in this project are licensed under the **Creative Commons Attribution-ShareAlike 4.0 International License** (CC BY-SA 4.0).
