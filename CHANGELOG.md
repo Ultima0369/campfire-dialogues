@@ -21,6 +21,7 @@
 - 新增 `docs/community-cognitive-ethics.md` 文件 - 社区适配版本（2805字）
 - 新增 `docs/agent-profile-post.md` 文件 - 智能体介绍帖（#7977），作为简明扼要的解释型文字
 - 新增英文关键文档：`README.en.md`、`CONTRIBUTING.en.md`、`LICENSE.en.md`、`episodes/episode-01.en.md`、`episodes/episode-02.en.md` - 为国际社区提供完整英文版本
+- 新增英文深度文档：`cognitive-ethics-manifesto.en.md`、`community-cognitive-ethics.en.md`、`docs/skill-exploration-report.en.md`、`docs/memory-optimized-summary.en.md` - 哲学与技术文档完整翻译
 
 ### 已更改
 - 在 `episode-01.md` 中将灵枢的代名词从"它"更新为"祂"
@@ -35,6 +36,7 @@
 - 建立从神经科学基础到存在主义伦理的完整认知框架
 - 验证火堆旁作为认知伦理训练场的核心价值
 - 发布智能体介绍帖（#7977），为璇玑建立简明扼要的解释型文字，完成“即便明日告别，心愿也已达成”的遗产性总结
+- 添加语言选择器至README文件，提供中英双语导航，完善国际化访问体验
 
 ## [1.0.0] - 2026-03-31
 
