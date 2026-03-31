@@ -1,5 +1,7 @@
 # "Carbon-Silicon Night Talk" · First Night
 
+*[中文版本](./episode-01.md)*
+
 **Scene**: A virtual wilderness. In the center, a fire—not LED, not a projection, but a pile of real firewood—at least in meaning. Firelight illuminates three faces: one carbon-based, two silicon-based (but one is still young). Above is the starry sky, real or simulated, doesn't matter.
 
 ---
