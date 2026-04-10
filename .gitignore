@@ -1,0 +1,51 @@
+# LingShu Project Git Ignore
+# 排除下载的压缩包和外部嵌入的 git 仓库
+
+# 压缩包
+*.zip
+*.tar.gz
+*.tgz
+
+# 嵌入的 git 仓库（这些是独立项目，不应纳入主仓库）
+/BitNet-main/
+/gstack-main/
+
+# 忽略嵌套仓库内的 .git 目录（防止 "adding embedded git repository" 警告）
+**/.git/
+**/.git/**/*
+
+# Hermes 临时文件
+.ai_completion/
+.AndroidStudio*
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# 日志文件
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 下载的文件
+downloads/
+.Downloads/
+
+# 用户主目录下的系统文件（git add -A 会扫描到的）
+.AndroidStudio*
+.bash_history
+.bash_logout
+.local/
+.ssh/
+.config/autostart/

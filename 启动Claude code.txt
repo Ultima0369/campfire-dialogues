@@ -1,0 +1,20 @@
+启动Claude code
+
+claude --dangerously-skip-permissions
+
+
+明白了，我帮你直接用一条命令把配置写好（使用 step-3.5-flash-2603 模型）。请复制下面整段命令到终端执行：
+
+mkdir -p ~/.claude && cat > ~/.claude/settings.json << 'EOF'
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "5cFLQYW47c5DweJ4KdZxtRCYcI5TORg95BtnRPKTmuxgrzNKARKCt5PZ3zyGMo8RE",
+    "ANTHROPIC_BASE_URL": "https://api.stepfun.com/step_plan",
+    "ANTHROPIC_MODEL": "step-3.5-flash-2603"
+  }
+}
+EOF
+
+执行完成后，可以用下面命令检查内容是否正确：
+
+cat ~/.claude/settings.json

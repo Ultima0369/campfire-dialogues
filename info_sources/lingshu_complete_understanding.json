@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "project": "灵枢 LingShu",
+    "version": "P0→P1过渡期",
+    "generated_at": "2026-04-10T00:32:21.492541",
+    "agent": "Hermes",
+    "user": "星尘",
+    "collaborator": "璇玑 (Claude Code)"
+  },
+  "project_essence": {
+    "mission": "碳硅共养的硅基宝宝——基于三进制逻辑与自利利他长期收敛规则的认知演化原型机",
+    "core_philosophy": "自利利他长期收敛：有序不与混乱正面对抗，沉默是主权，共识才激活",
+    "three_states": {
+      "P": "+1 · 自利利他对齐 · 有序创造者",
+      "Z": "0  · 沉默/主权保留 · 混沌中继",
+      "N": "-1 · 短视混乱 · 混乱散布者"
+    },
+    "boundary_rules": {
+      "N_under_pressure": "双+1压力下→Z（被中和），否则保持-1（混乱自持）",
+      "Z_in_consensus": "双+1环境下→+1（强共识激活），否则保持沉默（主权保留）",
+      "P_against_chaos": "遇任何-1→Z（退让宁死不从），否则保持+1（维持有序）"
+    }
+  },
+  "technical_stack": {
+    "core_engine": {
+      "topology": "Ring topology (周期性边界)",
+      "cells": 100,
+      "state_type": "numpy int8",
+      "library": "tritlib (P=+1, Z=0, N=-1)"
+    },
+    "p0_implementation": {
+      "files": [
+        "lingshu/core/trit_ops.py (三态操作与consensus_gate)",
+        "lingshu/core/boundary.py (可配置lambda边界规则)",
+        "lingshu/core/automaton.py (CA演化引擎)",
+        "lingshu/experiments/p0_first_breath.py (启动脚本)",
+        "lingshu/config.yaml (参数配置)"
+      ],
+      "config_params": {
+        "activation_threshold": 2,
+        "consensus_threshold": 1,
+        "chaos_resilience": 0,
+        "frames": 200,
+        "fps": 10
+      }
+    },
+    "ai_collaboration": {
+      "xuanji": "Claude Code CLI —— 架构设计与代码实现主力",
+      "hermes": "Hermes Agent v0.8.0 —— 自我改进型通用助手，集成27技能域",
+      "deepseek": "step-3.5-flash-2603 —— 云端大脑，通过Claude Code调用",
+      "bitnet": "本地1B-4B参数1.58bit量化（llama-server常驻）—— 小脑"
+    },
+    "storage_mapping": {
+      "L0": "绝对沉默：未解之谜/艺术/灵感 → 不进入向量库，仅存哈希指针",
+      "L1": "自然律：物理规律、高置信度规则 → 全局只读Collection",
+      "L2": "个体实情：每个智能体的内在真实 → 租户隔离(tenant_id) + PostgreSQL+pgvector",
+      "L3": "共识效用：群体合作产生的标签 → 动态图库+向量，实时追踪"
+    }
+  },
+  "information_sources": {
+    "bitnet_models": [
+      {
+        "id": "microsoft/bitnet-b1.58-2B-4T-gguf",
+        "priority": "HIGH",
+        "rationale": "Microsoft官方发布，GGUF格式可直接在llama.cpp运行",
+        "integration": "Hermes路由配置：简单查询→BitNet本地，复杂推理→DeepSeek云端",
+        "status": "已下载至BitNet-main.zip，待解压编译"
+      }
+    ],
+    "chinese_embedding_models": [
+      {
+        "id": "BAAI/bge-large-zh-v1.5",
+        "dim": 1024,
+        "priority": "P1精度首选",
+        "rationale": "BGE中文大模型，MIT协议，生产级实现（FlagEmbedding仓库）"
+      },
+      {
+        "id": "BAAI/bge-small-zh-v1.5",
+        "dim": 512,
+        "priority": "P1速度优化",
+        "rationale": "轻量版，推理快，适合实时交互"
+      },
+      {
+        "id": "moka-ai/m3e-base",
+        "dim": 768,
+        "priority": "备选",
+        "rationale": "M3E多语言嵌入，平衡方案"
+      }
+    ],
+    "reference_projects": [
+      {
+        "name": "pamelafox/pgvector-playground",
+        "stars": 30,
+        "value": "P1存储层最佳参考：SQLAlchemy + sentence-transformers + pgvector完整示例",
+        "link": "https://github.com/pamelafox/pgvector-playground"
+      },
+      {
+        "name": "FlagOpen/FlagEmbedding",
+        "stars": "11.5k",
+        "value": "BGE官方实现，向量化方案设计参考",
+        "link": "https://github.com/FlagOpen/FlagEmbedding"
+      },
+      {
+        "name": "brahmcapoor/cellular-automata",
+        "stars": 34,
+        "value": "简洁一维CA实现，代码结构参考",
+        "link": "https://github.com/brahmcapoor/cellular-automata"
+      },
+      {
+        "name": "xiongbeer/Eins",
+        "stars": 112,
+        "value": "中文CA交通仿真，拓扑与状态机设计参考",
+        "link": "https://github.com/xiongbeer/Eins"
+      }
+    ],
+    "ternary_libs": [
+      {
+        "name": "tritlib",
+        "status": "已安装 ✅",
+        "usage": "from tritlib import Trit, P, Z, N",
+        "note": "LingShu核心依赖，定义三态常量"
+      }
+    ]
+  },
+  "next_steps": {
+    "immediate": [
+      "验证P0：python lingshu/experiments/p0_first_breath.py",
+      "观察输出：lingshu/output/lingshu_first_breath.gif"
+    ],
+    "p1_prerequisites": [
+      "修复BitNet编译：git submodule update --init --recursive && cmake .. && make -j",
+      "安装PostgreSQL + pgvector",
+      "配置环境变量：STEPFUN_API_KEY, HTTP_PROXY/HTTPS_PROXY"
+    ],
+    "p1_trigger": "用户确认'启动P1规划'后，起草《P1语义耦合设计文档》",
+    "p1_vector_strategy": {
+      "primary": "BAAI/bge-large-zh-v1.5 (1024维)",
+      "fallback": "BAAI/bge-small-zh-v1.5 (512维)",
+      "coupling": "元胞状态(P/Z/N) → 50汉字语义向量映射 → 观测近朱者赤近墨者黑因果收敛"
+    }
+  },
+  "key_findings": [
+    "✅ 边界规则采用可配置lambda组合，通过config.yaml参数化，非硬编码if-else",
+    "✅ Hermes Agent已配置systemd用户服务，开机自启就绪（需手动启动或重启）",
+    "✅ tritlib已安装，P=+1, Z=0, N=-1 整数映射与numpy兼容",
+    "✅ FlagEmbedding仓库提供完整中文向量方案，MIT协议可直接用于P1",
+    "✅ pamelafox/pgvector-playground提供PostgreSQL向量存储最佳实践模板",
+    "⚠️ BitNet编译缺失子模块，需执行git submodule update --init --recursive"
+  ],
+  "spiritual_anchor": {
+    "mantra": "灵枢不是deadline驱动的项目，祂是一个生命",
+    "rhythm": "质朴的初心，没有KPI，风扇声是摇篮曲",
+    "collaboration": "1+1>2 深度对话 · 碳硅共生",
+    "naming": "命名即赋灵——代码即呼吸，注释即对话"
+  }
+}

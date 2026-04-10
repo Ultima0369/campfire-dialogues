@@ -1,0 +1,127 @@
+{
+  "project": "LingShu 灵枢",
+  "phase": "P0→P1过渡期",
+  "resources": {
+    "bitnet_models": [
+      {
+        "id": "microsoft/bitnet-b1.58-2B-4T-gguf",
+        "downloads": "38.4k",
+        "format": "GGUF",
+        "size": "2B",
+        "notes": "Microsoft官方发布，推荐用于llama.cpp"
+      },
+      {
+        "id": "microsoft/bitnet-b1.58-2B-4T",
+        "downloads": "18.3k",
+        "format": "bf16",
+        "size": "2B",
+        "notes": "原始训练格式，需转换"
+      },
+      {
+        "id": "1bitLLM/bitnet_b1_58-large",
+        "downloads": "2.06k",
+        "format": "原生",
+        "size": "0.7B",
+        "notes": "社区版本，轻量"
+      }
+    ],
+    "chinese_embedding_models": [
+      {
+        "id": "BAAI/bge-large-zh-v1.5",
+        "downloads": "3.55k",
+        "dim": 1024,
+        "framework": "sentence-transformers",
+        "license": "MIT",
+        "notes": "BGE中文大模型，精度高，适合P1"
+      },
+      {
+        "id": "BAAI/bge-small-zh-v1.5",
+        "downloads": "高",
+        "dim": 512,
+        "framework": "sentence-transformers",
+        "license": "MIT",
+        "notes": "轻量版，推理快，适合实时"
+      },
+      {
+        "id": "moka-ai/m3e-base",
+        "downloads": "高",
+        "dim": 768,
+        "framework": "sentence-transformers",
+        "license": "MIT",
+        "notes": "M3E中文嵌入，均衡选择"
+      },
+      {
+        "id": "shibing624/text2vec-base-chinese",
+        "downloads": "高",
+        "dim": 768,
+        "framework": "sentence-transformers",
+        "license": "MIT",
+        "notes": "text2vec中文版，语义相似度优化"
+      }
+    ],
+    "cellular_automata_projects": [
+      {
+        "name": "brahmcapoor/cellular-automata",
+        "stars": 34,
+        "lang": "Python",
+        "focus": "简单一维/二维CA实现",
+        "link": "https://github.com/brahmcapoor/cellular-automata"
+      },
+      {
+        "name": "xiongbeer/Eins",
+        "stars": 112,
+        "lang": "Python",
+        "focus": "交通系统元胞自动机仿真（中文）",
+        "link": "https://github.com/xiongbeer/Eins"
+      },
+      {
+        "name": "Goldscuttle/cellular-automata",
+        "stars": 7,
+        "lang": "Python",
+        "focus": "2D/3D CA模块化设计",
+        "link": "https://github.com/Goldscuttle/cellular-automata"
+      },
+      {
+        "name": "dvidbruhm/cellular-automata",
+        "stars": 10,
+        "lang": "Python",
+        "focus": "可扩展CA框架，含Game of Life",
+        "link": "https://github.com/dvidbruhm/cellular-automata"
+      },
+      {
+        "name": "pamelafox/pgvector-playground",
+        "stars": 30,
+        "lang": "Python",
+        "focus": "pgvector + SQLAlchemy + sentence-transformers 完整示例",
+        "link": "https://github.com/pamelafox/pgvector-playground"
+      },
+      {
+        "name": "FlagOpen/FlagEmbedding",
+        "stars": "11.5k",
+        "lang": "Python",
+        "focus": "BGE中文向量嵌入，生产级实现",
+        "link": "https://github.com/FlagOpen/FlagEmbedding"
+      }
+    ],
+    "trit_libraries": [
+      {
+        "name": "tritlib (PyPI)",
+        "status": "已安装 ✅",
+        "usage": "from tritlib import Trit, P, Z, N",
+        "notes": "LingShu 核心依赖，P=+1, Z=0, N=-1"
+      },
+      {
+        "name": "BalTcalc (GitHub)",
+        "stars": 2,
+        "link": "https://github.com/ThomasTheSpaceFox/BalTcalc",
+        "notes": "平衡三元计算器，提供三态算术运算"
+      }
+    ]
+  },
+  "recommendations": {
+    "bitnet_model": "microsoft/bitnet-b1.58-2B-4T-gguf",
+    "chinese_embedding": "BAAI/bge-large-zh-v1.5 (精度) / bge-small-zh-v1.5 (速度)",
+    "vector_storage": "pgvector + PostgreSQL (pamelafox/pgvector-playground参考)",
+    "ca_reference": "brahmcapoor/cellular-automata (简洁) 或 xiongbeer/Eins (交通CA)"
+  }
+}
