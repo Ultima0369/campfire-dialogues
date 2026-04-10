@@ -52,6 +52,7 @@ class FirecrawlProvider(CloudBrowserProvider):
             headers=self._headers(),
             json=body,
             timeout=30,
+            proxies={},
         )
 
         if not response.ok:
@@ -78,6 +79,7 @@ class FirecrawlProvider(CloudBrowserProvider):
                 f"{self._api_url()}/v2/browser/{session_id}",
                 headers=self._headers(),
                 timeout=10,
+                proxies={},
             )
             if response.status_code in (200, 201, 204):
                 logger.debug("Successfully closed Firecrawl session %s", session_id)
@@ -100,6 +102,7 @@ class FirecrawlProvider(CloudBrowserProvider):
                 f"{self._api_url()}/v2/browser/{session_id}",
                 headers=self._headers(),
                 timeout=5,
+                proxies={},
             )
         except ValueError:
             logger.warning("Cannot emergency-cleanup Firecrawl session %s — missing credentials", session_id)

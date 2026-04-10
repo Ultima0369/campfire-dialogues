@@ -97,6 +97,7 @@ class BrowserbaseProvider(CloudBrowserProvider):
             headers=headers,
             json=session_config,
             timeout=30,
+            proxies={},
         )
 
         proxies_fallback = False
@@ -116,6 +117,7 @@ class BrowserbaseProvider(CloudBrowserProvider):
                     headers=headers,
                     json=session_config,
                     timeout=30,
+                    proxies={},
                 )
 
             if response.status_code == 402 and enable_proxies:
@@ -130,6 +132,7 @@ class BrowserbaseProvider(CloudBrowserProvider):
                     headers=headers,
                     json=session_config,
                     timeout=30,
+                    proxies={},
                 )
 
         if not response.ok:
@@ -179,6 +182,7 @@ class BrowserbaseProvider(CloudBrowserProvider):
                     "status": "REQUEST_RELEASE",
                 },
                 timeout=10,
+                proxies={},
             )
             if response.status_code in (200, 201, 204):
                 logger.debug("Successfully closed Browserbase session %s", session_id)
@@ -212,6 +216,7 @@ class BrowserbaseProvider(CloudBrowserProvider):
                     "status": "REQUEST_RELEASE",
                 },
                 timeout=5,
+                proxies={},
             )
         except Exception as e:
             logger.debug("Emergency cleanup failed for Browserbase session %s: %s", session_id, e)

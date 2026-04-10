@@ -1043,7 +1043,7 @@ def refresh_codex_oauth_pure(
         )
 
     timeout = httpx.Timeout(max(5.0, float(timeout_seconds)))
-    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}) as client:
+    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, trust_env=False) as client:
         response = client.post(
             CODEX_OAUTH_TOKEN_URL,
             headers={"Content-Type": "application/x-www-form-urlencoded"},
@@ -1426,7 +1426,7 @@ def fetch_nous_models(
 ) -> List[str]:
     """Fetch available model IDs from the Nous inference API."""
     timeout = httpx.Timeout(timeout_seconds)
-    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify) as client:
+    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify, trust_env=False) as client:
         response = client.get(
             f"{inference_base_url.rstrip('/')}/models",
             headers={"Authorization": f"Bearer {api_key}"},
@@ -1533,6 +1533,7 @@ def resolve_nous_access_token(
             timeout=timeout,
             headers={"Accept": "application/json"},
             verify=verify,
+            trust_env=False,
         ) as client:
             refreshed = _refresh_access_token(
                 client=client,
@@ -1605,7 +1606,7 @@ def refresh_nous_oauth_pure(
     verify = _resolve_verify(insecure=insecure, ca_bundle=ca_bundle, auth_state=state)
     timeout = httpx.Timeout(timeout_seconds if timeout_seconds else 15.0)
 
-    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify) as client:
+    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify, trust_env=False) as client:
         if force_refresh or _is_expiring(state.get("expires_at"), ACCESS_TOKEN_REFRESH_SKEW_SECONDS):
             refreshed = _refresh_access_token(
                 client=client,
@@ -1752,7 +1753,7 @@ def resolve_nous_runtime_credentials(
             refresh_token_fp=_token_fingerprint(state.get("refresh_token")),
         )
 
-        with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify) as client:
+        with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify, trust_env=False) as client:
             access_token = state.get("access_token")
             refresh_token = state.get("refresh_token")
 
@@ -2537,7 +2538,7 @@ def _codex_device_code_login() -> Dict[str, Any]:
 
     # Step 1: Request device code
     try:
-        with httpx.Client(timeout=httpx.Timeout(15.0)) as client:
+        with httpx.Client(timeout=httpx.Timeout(15.0), trust_env=False) as client:
             resp = client.post(
                 f"{issuer}/api/accounts/deviceauth/usercode",
                 json={"client_id": client_id},
@@ -2580,7 +2581,7 @@ def _codex_device_code_login() -> Dict[str, Any]:
     code_resp = None
 
     try:
-        with httpx.Client(timeout=httpx.Timeout(15.0)) as client:
+        with httpx.Client(timeout=httpx.Timeout(15.0), trust_env=False) as client:
             while _time.monotonic() - start < max_wait:
                 _time.sleep(poll_interval)
                 poll_resp = client.post(
@@ -2621,7 +2622,7 @@ def _codex_device_code_login() -> Dict[str, Any]:
         )
 
     try:
-        with httpx.Client(timeout=httpx.Timeout(15.0)) as client:
+        with httpx.Client(timeout=httpx.Timeout(15.0), trust_env=False) as client:
             token_resp = client.post(
                 CODEX_OAUTH_TOKEN_URL,
                 data={
@@ -2713,7 +2714,7 @@ def _nous_device_code_login(
     elif ca_bundle:
         print(f"TLS verification: custom CA bundle ({ca_bundle})")
 
-    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify) as client:
+    with httpx.Client(timeout=timeout, headers={"Accept": "application/json"}, verify=verify, trust_env=False) as client:
         device_data = _request_device_code(
             client=client,
             portal_base_url=portal_base_url,

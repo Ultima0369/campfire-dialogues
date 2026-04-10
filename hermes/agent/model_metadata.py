@@ -268,7 +268,7 @@ def detect_local_server_type(base_url: str) -> Optional[str]:
         server_url = server_url[:-3]
 
     try:
-        with httpx.Client(timeout=2.0) as client:
+        with httpx.Client(timeout=2.0, trust_env=False) as client:
             # LM Studio exposes /api/v1/models — check first (most specific)
             try:
                 r = client.get(f"{server_url}/api/v1/models")
@@ -396,7 +396,7 @@ def fetch_model_metadata(force_refresh: bool = False) -> Dict[str, Dict[str, Any
         return _model_metadata_cache
 
     try:
-        response = requests.get(OPENROUTER_MODELS_URL, timeout=10)
+        response = requests.get(OPENROUTER_MODELS_URL, timeout=10, proxies={})
         response.raise_for_status()
         data = response.json()
 
@@ -458,7 +458,7 @@ def fetch_endpoint_model_metadata(
     for candidate in candidates:
         url = candidate.rstrip("/") + "/models"
         try:
-            response = requests.get(url, headers=headers, timeout=10)
+            response = requests.get(url, headers=headers, timeout=10, proxies={})
             response.raise_for_status()
             payload = response.json()
             cache: Dict[str, Dict[str, Any]] = {}
@@ -489,9 +489,9 @@ def fetch_endpoint_model_metadata(
                 try:
                     # Try /v1/props first (current llama.cpp); fall back to /props for older builds
                     base = candidate.rstrip("/").replace("/v1", "")
-                    props_resp = requests.get(base + "/v1/props", headers=headers, timeout=5)
+                    props_resp = requests.get(base + "/v1/props", headers=headers, timeout=5, proxies={})
                     if not props_resp.ok:
-                        props_resp = requests.get(base + "/props", headers=headers, timeout=5)
+                        props_resp = requests.get(base + "/props", headers=headers, timeout=5, proxies={})
                     if props_resp.ok:
                         props = props_resp.json()
                         gen_settings = props.get("default_generation_settings", {})
@@ -643,7 +643,7 @@ def query_ollama_num_ctx(model: str, base_url: str) -> Optional[int]:
         return None
 
     try:
-        with httpx.Client(timeout=3.0) as client:
+        with httpx.Client(timeout=3.0, trust_env=False) as client:
             resp = client.post(f"{server_url}/api/show", json={"name": bare_model})
             if resp.status_code != 200:
                 return None
@@ -690,7 +690,7 @@ def _query_local_context_length(model: str, base_url: str) -> Optional[int]:
         server_type = None
 
     try:
-        with httpx.Client(timeout=3.0) as client:
+        with httpx.Client(timeout=3.0, trust_env=False) as client:
             # Ollama: /api/show returns model details with context info
             if server_type == "ollama":
                 resp = client.post(f"{server_url}/api/show", json={"name": model})
@@ -788,7 +788,7 @@ def _query_anthropic_context_length(model: str, base_url: str, api_key: str) -> 
             "x-api-key": api_key,
             "anthropic-version": "2023-06-01",
         }
-        resp = requests.get(url, headers=headers, timeout=10)
+        resp = requests.get(url, headers=headers, timeout=10, proxies={})
         if resp.status_code != 200:
             return None
         data = resp.json()

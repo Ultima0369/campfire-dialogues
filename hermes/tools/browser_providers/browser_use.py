@@ -142,6 +142,7 @@ class BrowserUseProvider(CloudBrowserProvider):
             headers=headers,
             json=payload,
             timeout=30,
+            proxies={},
         )
 
         if not response.ok:
@@ -183,6 +184,7 @@ class BrowserUseProvider(CloudBrowserProvider):
                 headers=self._headers(config),
                 json={"action": "stop"},
                 timeout=10,
+                proxies={},
             )
             if response.status_code in (200, 201, 204):
                 logger.debug("Successfully closed Browser Use session %s", session_id)
@@ -210,6 +212,7 @@ class BrowserUseProvider(CloudBrowserProvider):
                 headers=self._headers(config),
                 json={"action": "stop"},
                 timeout=5,
+                proxies={},
             )
         except Exception as e:
             logger.debug("Emergency cleanup failed for Browser Use session %s: %s", session_id, e)

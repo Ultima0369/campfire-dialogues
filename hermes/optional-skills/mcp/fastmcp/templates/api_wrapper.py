@@ -23,7 +23,7 @@ def _headers() -> dict[str, str]:
 
 def _request(method: str, path: str, *, params: dict[str, Any] | None = None) -> Any:
     url = f"{API_BASE_URL.rstrip('/')}/{path.lstrip('/')}"
-    with httpx.Client(timeout=REQUEST_TIMEOUT, headers=_headers()) as client:
+    with httpx.Client(timeout=REQUEST_TIMEOUT, headers=_headers(), trust_env=False) as client:
         response = client.request(method, url, params=params)
         response.raise_for_status()
         return response.json()

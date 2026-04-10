@@ -65,7 +65,7 @@ def check_camofox_available() -> bool:
     if not url:
         return False
     try:
-        resp = requests.get(f"{url}/health", timeout=5)
+        resp = requests.get(f"{url}/health", timeout=5, proxies={})
         if resp.status_code == 200 and not _vnc_url_checked:
             try:
                 data = resp.json()
@@ -158,6 +158,7 @@ def _ensure_tab(task_id: Optional[str], url: str = "about:blank") -> Dict[str, A
             "url": url,
         },
         timeout=_DEFAULT_TIMEOUT,
+        proxies={},
     )
     resp.raise_for_status()
     data = resp.json()
@@ -179,7 +180,7 @@ def _drop_session(task_id: Optional[str]) -> Optional[Dict[str, Any]]:
 def _post(path: str, body: dict, timeout: int = _DEFAULT_TIMEOUT) -> dict:
     """POST JSON to camofox and return parsed response."""
     url = f"{get_camofox_url()}{path}"
-    resp = requests.post(url, json=body, timeout=timeout)
+    resp = requests.post(url, json=body, timeout=timeout, proxies={})
     resp.raise_for_status()
     return resp.json()
 
@@ -187,7 +188,7 @@ def _post(path: str, body: dict, timeout: int = _DEFAULT_TIMEOUT) -> dict:
 def _get(path: str, params: dict = None, timeout: int = _DEFAULT_TIMEOUT) -> dict:
     """GET from camofox and return parsed response."""
     url = f"{get_camofox_url()}{path}"
-    resp = requests.get(url, params=params, timeout=timeout)
+    resp = requests.get(url, params=params, timeout=timeout, proxies={})
     resp.raise_for_status()
     return resp.json()
 
@@ -203,7 +204,7 @@ def _get_raw(path: str, params: dict = None, timeout: int = _DEFAULT_TIMEOUT) ->
 def _delete(path: str, body: dict = None, timeout: int = _DEFAULT_TIMEOUT) -> dict:
     """DELETE to camofox and return parsed response."""
     url = f"{get_camofox_url()}{path}"
-    resp = requests.delete(url, json=body, timeout=timeout)
+    resp = requests.delete(url, json=body, timeout=timeout, proxies={})
     resp.raise_for_status()
     return resp.json()
 
